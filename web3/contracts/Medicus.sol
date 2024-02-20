@@ -113,7 +113,6 @@ contract Medicus {
         patentSale.owner = msg.sender;
     }
 
-
     function buyPatent (uint256 _id, string memory _organization) public payable {
         PatentSale storage patentSale = patentSales[_id];
         (bool sent, ) = payable(patentSale.owner).call{value: msg.value}("");
@@ -134,25 +133,30 @@ contract Medicus {
     }
 
     function getResearch() public view returns (Research[] memory){
-        Research[] memory researchList = new Research[](researchCount);
-        for (uint256 i = 1; i <= researchCount; i++){
-            researchList[i] = researches[i];
+        Research[] memory researchList = new Research[](
+            researchCount)
+            ;
+        for (uint i = 1; i <= researchCount; i++){
+            Research storage item = researches[i];
+            researchList[i-1] = item;
         }
         return researchList;
     }
     
     function getPatentsOnsale() public view returns (PatentSale[] memory){
         PatentSale[] memory patentSaleList = new PatentSale[](patentSaleCount);
-        for (uint256 i = 1; i <= patentSaleCount; i++){
-            patentSaleList[i] = patentSales[i];
+        for (uint i = 1; i <= patentSaleCount; i++){
+            PatentSale storage item = patentSales[i];
+            patentSaleList[i-1] = item;
         }
         return patentSaleList;
     }
 
     function getCollaborations() public view returns(Collaboration[] memory) {
         Collaboration[] memory collaboration =  new Collaboration[](collaborationCount);
-        for (uint256 i = 1; i <= collaborationCount; i++){
-            collaboration[i] = collaborations[i];
+        for (uint i = 1; i <= collaborationCount; i++){
+            Collaboration storage item = collaborations[i];
+            collaboration[i-1] = item;
         }
         return collaboration;
     }

@@ -1,9 +1,10 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { Hero } from "../components/Hero";
+import { Navbar } from "../components/Navbar";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Hero />
     </div>
   );
 }

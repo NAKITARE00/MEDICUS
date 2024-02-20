@@ -1,6 +1,5 @@
 require("@matterlabs/hardhat-zksync-solc");
-require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-etherscan");
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   paths: {
@@ -20,15 +19,10 @@ module.exports = {
     },
   },
   networks: {
-    avalancheFuji: {
-      url: `https://api.avax-test.network/ext/C/rpc`,
+    bnbSmartChainTestnet: {
+      url: `https://data-seed-prebsc-1-s1.bnbchain.org:8545`,
       accounts: process.env.PRIVATE_KEY,
-      chainId: 43113,
-    },
-    polygonMumbai: {
-      url: `https://rpc-mumbai.maticvigil.com`,
-      accounts: process.env.PRIVATE_KEY,
-      chainId: 80001,
+      chainId: 97,
     },
   },
   etherscan: {
