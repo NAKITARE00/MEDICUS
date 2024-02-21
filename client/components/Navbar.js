@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ConnectWallet } from "@thirdweb-dev/react";
 import { Center } from "@chakra-ui/layout";
 import Image from "next/image";
+import icon from "../public/icon.png";
 
 export function Navbar() {
   return (
@@ -10,12 +11,15 @@ export function Navbar() {
       text-white font-[epilogue]"
     >
       <Link className="mr-6 flex items-center" href="#">
-        {/* <Image src={"../public/medicus.svg"} width={40} height={40} /> */}
+        <Image src={icon} />
         <span className="ml-2 text-lg font-semibold">MEDICUS</span>
       </Link>
 
       <div className="ml-[350px] mr-[350px]">
-        <nav className="flex gap-4 sm:gap-6 text-55px">
+        <nav className="flex gap-4 sm:gap-6 text-55px font-semibold">
+          <Link className="hover:underline underline-offset-4" href="#">
+            Home
+          </Link>
           <Link className="hover:underline underline-offset-4" href="#">
             Patents & Research
           </Link>
