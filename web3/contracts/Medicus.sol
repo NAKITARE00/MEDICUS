@@ -28,6 +28,7 @@ contract Medicus {
         address[] collaborators;
         string description;
         string uri;
+        address admin;
     }
     mapping (uint256 => Collaboration) public collaborations;
     uint256 collaborationCount;
@@ -52,7 +53,8 @@ contract Medicus {
         string memory _title, 
         string memory _description, 
         string memory _organization, 
-        string memory _uri
+        string memory _uri,
+        address _admin
         ) 
         public
     {
@@ -61,7 +63,7 @@ contract Medicus {
         newResearch.title = _title;
         newResearch.id = id;
         newResearch.description = _description;
-        newResearch.admin = msg.sender;
+        newResearch.admin = _admin;
         newResearch.organization = _organization;
         newResearch.researchURI = _uri;
         researchCount = id;
@@ -71,12 +73,13 @@ contract Medicus {
         uint256 id = collaborationCount + 1;
         Collaboration storage collaboration = collaborations[id];
         collaboration.title = _name;
+        collaboration.admin = msg.sender;
         collaboration.id = id;
         collaboration.description = _description;
         collaboration.uri = _uri;
         collaborationCount = id;
         collaboration.collaborators.push(msg.sender);
-        createPatent(_name, _description, _name, _uri);
+        createPatent(_name, _description, _name, _uri, collaboration.admin);
     }
 
     function joinCollaboration (uint256 _id) public{

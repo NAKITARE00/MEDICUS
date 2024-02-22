@@ -17,16 +17,19 @@ export function Navbar() {
 
       <div className="ml-[350px] mr-[350px]">
         <nav className="flex gap-4 sm:gap-6 text-55px font-semibold">
-          <Link className="hover:underline underline-offset-4" href="#">
+          <Link className="hover:underline underline-offset-4" href="/">
             Home
           </Link>
-          <Link className="hover:underline underline-offset-4" href="#">
+          <Link className="hover:underline underline-offset-4" href="/patents">
             Patents & Research
           </Link>
-          <Link className="hover:underline underline-offset-4" href="#">
+          <Link
+            className="hover:underline underline-offset-4"
+            href="/collaboration"
+          >
             Collaborate
           </Link>
-          <Link className="hover:underline underline-offset-4" href="#">
+          <Link className="hover:underline underline-offset-4" href="/market">
             Buy Patents
           </Link>
         </nav>
