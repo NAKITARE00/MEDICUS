@@ -2,16 +2,13 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <div className="flex flex-col items-center bg-[] justify-center font-semibold font-[epilogue]">
-      <div className="flex flex-col md:flex-row gap-4 md:gap-10">
+    <div className="flex flex-col items-center bg-[] justify-center font-[sans-serif] p-[5px] ">
+      <div className="flex flex-row gap-[10px]">
         <Link className="text-sm hover:underline" href="#">
-          BNB Chain
+          BNB-Chain
         </Link>
         <Link className="text-sm hover:underline" href="#">
-          Platform Support
-        </Link>
-        <Link className="text-sm hover:underline" href="#">
-          Contact Us
+          Support
         </Link>
       </div>
     </div>

@@ -1,7 +1,13 @@
-export function Button() {
+export function Button({ btnType, title, handleClick, styles }) {
   return (
-    <button className="bg-white text-black hover:bg-black hover:text-white transition-colors duration-200">
-      Connect
+    <button
+      type={btnType}
+      className={`font-epilogue font-semibold text-[16px] 
+      leading-[26px] text-white min-h-[52px] px-4 rounded-[10px]
+      ${styles}`}
+      onClick={handleClick}
+    >
+      {title}
     </button>
   );
 }

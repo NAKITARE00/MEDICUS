@@ -8,6 +8,7 @@ const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract("", Medicus.abi);
   const address = useAddress();
+
   const { mutateAsync: createPatent } = useContractWrite(
     contract,
     "createPatent"
