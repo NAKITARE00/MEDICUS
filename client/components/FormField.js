@@ -23,7 +23,7 @@ export function FormField({
         placeholder={placeholder}
         className="py-[15px] sm:px-[25px] px-[15px] 
                 outline-none border-[1px] border-[#fff] 
-                bg-transparent font-epilogue text-black text-[14px] 
+                bg-transparent font-[sans-serif] text-white text-[14px] 
                 placeholder:text-[#4b5264] 
                 rounded-[10px] sm:min-w-[300px]
                 focus:ring-2 focus:ring-purple-500

@@ -4,14 +4,14 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import Image from "next/image";
 import doctors from "../public/doctors.jpeg";
-import arrow from "../public/arrow.png";
+import background from "../public/background.jpeg";
 
 export function Hero() {
   return (
     <div>
       <Header />
       <Navbar />
-      <section className="w-full font-[sans-serif] items-center pl-[100px] bg-[] mb-[10px] mt-[10px] h-[600px]">
+      <section className="w-full font-[sans-serif] items-center pl-[100px] bg-[] mb-[10px] mt-[10px] h-[590px]">
         <div className="container md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
             <div className="flex flex-col justify-center space-y-4">
@@ -29,9 +29,6 @@ export function Hero() {
                   ensuring all contributors are duly recognized and rewarded.
                 </p>
               </div>
-              {/* <div>
-                <Image src={doctors} h={10} w={10} />
-              </div> */}
             </div>
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
@@ -48,9 +45,6 @@ export function Hero() {
                   applications.
                 </p>
               </div>
-              {/* <div>
-                <Image src={doctors} h={10} w={10} />
-              </div> */}
               <Link
                 className="bg-[black] font-[semibold] w-[55px] gap-[7px] p-[7px] text-[15px] rounded-[5px] text-white text-[15px] flex flex-[row]"
                 href="/market"
@@ -95,12 +89,10 @@ export function Hero() {
                   rewards for advancing healthcare.
                 </p>
               </div>
-              {/* <div>
-                <Image src={doctors} h={10} w={10} />
-              </div> */}
+
               <Link
                 className="bg-[black] font-[semibold] w-[95px] gap-[7px] p-[6px] text-[15px] rounded-[5px] text-white text-[15px] flex flex-[row]"
-                href="/patents"
+                href="/createpatent"
               >
                 Create Patent
                 {/* <Image src={arrow} height={10} width={10} /> */}

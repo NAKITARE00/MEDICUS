@@ -2,8 +2,8 @@ export function Button({ btnType, title, handleClick, styles }) {
   return (
     <button
       type={btnType}
-      className={`font-epilogue font-semibold text-[16px] 
-      leading-[26px] text-white min-h-[52px] px-4 rounded-[10px]
+      className={`font-[sans-serif] text-[16px] 
+      text-white p-3 rounded-[8px]
       ${styles}`}
       onClick={handleClick}
     >

@@ -1,3 +1,3 @@
 export default function Patent() {
-  return <div>Create Patent</div>;
+  return <div>Patents</div>;
 }
