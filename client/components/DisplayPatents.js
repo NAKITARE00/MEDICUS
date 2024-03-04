@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { PatentCard } from "./PatentCard";
 import Image from "next/image";
-import loader from "../assets/loader.svg";
 
 export function DisplayPatent({ title, isLoading, patents }) {
   const navigate = useNavigate();
@@ -20,13 +19,13 @@ export function DisplayPatent({ title, isLoading, patents }) {
       </h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
-        {isLoading && (
+        {/* {isLoading && (
           <Image
             src={loader}
             className="w-{100px] h-[100px]
                 object-contain"
           />
-        )}
+        )} */}
 
         {!isLoading && patents.length === 0 && (
           <p
