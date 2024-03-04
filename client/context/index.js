@@ -6,7 +6,10 @@ import Medicus from "../contract/Medicus.json";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract("", Medicus.abi);
+  const { contract } = useContract(
+    "0xfEd2E76540c2e7f5CD6e7EAFe821337593d30a2e",
+    Medicus.abi
+  );
   const address = useAddress();
 
   const { mutateAsync: createPatent } = useContractWrite(
@@ -97,6 +100,7 @@ export const StateContextProvider = ({ children }) => {
       name: patent.name,
       amount: patent.amount,
       owner: patent.owner,
+      profile: patent.profile,
       pId: i,
     }));
 
@@ -114,6 +118,7 @@ export const StateContextProvider = ({ children }) => {
       admin: research.admin,
       funding: research.funding,
       organization: research.organization,
+      profile: research.profile,
       pId: i,
     }));
 
@@ -129,6 +134,7 @@ export const StateContextProvider = ({ children }) => {
       description: collaboration.description,
       uri: collaboration.uri,
       admin: collaboration.admin,
+      profile: collaboration.profile,
       pId: i,
     }));
   };

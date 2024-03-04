@@ -6,9 +6,10 @@ import { useStateContext } from "../context";
 import { useState } from "react";
 import Image from "next/image";
 import background from "../public/background.jpeg";
+import { Navbar } from "../components/Navbar";
 
 export default function CreatePatent() {
-  const createPatent = useStateContext();
+  const { createPatent } = useStateContext();
   const address = useStateContext();
   const [form, setForm] = useState({
     title: "",
@@ -32,24 +33,29 @@ export default function CreatePatent() {
     );
   };
   return (
-    <div className="flex flex-col justify-center items-center bg-[black] h-[] font-[san-serif]">
+    <div className="flex flex-col justify-center items-center bg-[black] h-[] font-[sans-serif]">
+      <Navbar />
       <div
         className="flex justify-center items-center p-[16px] 
-      sm:min-w-[480px] bg-[black] mt-[30px] 
+      sm:min-w-[480px] bg-[black] mt-[5x] 
       rounded-[10px]"
       >
-        <h1 className="sm:text-[24px] text-[17px] leading-[37px] text-white">
-          Create Patent
-        </h1>
+        <h1 className="sm:text-[24px] text-[17px] text-white">Create Patent</h1>
       </div>
-
-      <div className="flex flex-row gap-2">
-        <Image src={background} height={50} width={50} />
+      <div className="flex flex-row gap-10 mt-[60px]">
+        <div>
+          <Image
+            src={background}
+            height={450}
+            width={450}
+            className="rounded-[10px]"
+          />
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="w-[] mt-[65px] flex flex-col gap-[30px] sm:min-w-[200px] mb-[200px]"
+          className="flex flex-col gap-[30px] sm:min-w-[200px] mb-[30px]"
         >
-          <div className="flex flex-wrap gap-[40px]">
+          <div className="flex flex-col gap-[40px]">
             <FormField
               labelName=" Patent Name *"
               placeholder="title"
@@ -61,6 +67,7 @@ export default function CreatePatent() {
               labelName="Patent Description*"
               placeholder="description"
               inputType="text"
+              styles="h-[100px]"
               value={form.description}
               handleChange={(e) => handleFormFieldChange("receiver", e)}
             />
@@ -85,7 +92,7 @@ export default function CreatePatent() {
             <Button
               btnType="submit"
               title="Create"
-              styles="bg-[#002D62]"
+              styles="bg-[#002D62] w-[200px]"
               handleClick={handleSubmit}
             />
           </div>

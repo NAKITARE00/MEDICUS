@@ -3,7 +3,7 @@ export function Button({ btnType, title, handleClick, styles }) {
     <button
       type={btnType}
       className={`font-[sans-serif] text-[16px] 
-      text-white p-3 rounded-[8px]
+      text-white p-2 rounded-[10px]
       ${styles}`}
       onClick={handleClick}
     >

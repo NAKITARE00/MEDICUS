@@ -18,8 +18,8 @@ export function Navbar() {
       className="flex h-17 w-full items-center px-4 md:px-6 bg-[black]
       text-white font-[sans-serif]"
     >
-      <Link className="mr-6 flex items-center" href="#">
-        <Image src={icon} />
+      <Link className="mr-6 flex items-center" href="/">
+        <Image src={icon} height={40} width={40} />
         <span className="ml-2 text-lg">MEDICUS</span>
       </Link>
 

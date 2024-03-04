@@ -18,6 +18,7 @@ contract Medicus {
         uint256 funding;
         string organization;
         string researchURI;
+        string profile;
     }  
     mapping (uint256 => Research) public researches;
     uint256 public researchCount;
@@ -29,6 +30,7 @@ contract Medicus {
         string description;
         string uri;
         address admin;
+        string profile;
     }
     mapping (uint256 => Collaboration) public collaborations;
     uint256 collaborationCount;
@@ -39,6 +41,7 @@ contract Medicus {
         string name;
         uint256 amount;
         address owner;
+        string profile;
     }
     mapping (uint256 => PatentSale) public patentSales;
     uint256 public patentSaleCount;
@@ -54,7 +57,8 @@ contract Medicus {
         string memory _description, 
         string memory _organization, 
         string memory _uri,
-        address _admin
+        address _admin,
+        string memory _profile
         ) 
         public
     {
@@ -66,10 +70,11 @@ contract Medicus {
         newResearch.admin = _admin;
         newResearch.organization = _organization;
         newResearch.researchURI = _uri;
+        newResearch.profile = _profile;
         researchCount = id;
     }
 
-    function createCollaboration(string memory _name, string memory _description, string memory _uri) public{
+    function createCollaboration(string memory _name, string memory _description, string memory _uri, string memory _profile) public{
         uint256 id = collaborationCount + 1;
         Collaboration storage collaboration = collaborations[id];
         collaboration.title = _name;
@@ -77,9 +82,10 @@ contract Medicus {
         collaboration.id = id;
         collaboration.description = _description;
         collaboration.uri = _uri;
+        collaboration.profile = _profile;
         collaborationCount = id;
         collaboration.collaborators.push(msg.sender);
-        createPatent(_name, _description, _name, _uri, collaboration.admin);
+        createPatent(_name, _description, _name, _uri, collaboration.admin, collaboration.profile);
     }
 
     function joinCollaboration (uint256 _id) public{
@@ -113,6 +119,7 @@ contract Medicus {
         patentSale.amount = _amount;
         patentSale.patentId = _id;
         patentSale.name = research.title;
+        patentSale.profile = research.profile;
         patentSale.owner = msg.sender;
     }
 
