@@ -4,10 +4,12 @@ import { PatentCard } from "./PatentCard";
 import Image from "next/image";
 import Link from "next/link";
 
-export function DisplayPatent({ title, isLoading, patents }) {
+export function DisplayCollaborations({ title, isLoading, collaborations }) {
   const router = useRouter();
-  const handleNavigate = (patent) => {
-    router.push(`/patents/${patent.name}`, { state: patent });
+  const handleNavigate = (collaboration) => {
+    router.push(`/collaboration/${collaboration.name}`, {
+      state: collaboration,
+    });
   };
 
   return (
@@ -16,7 +18,7 @@ export function DisplayPatent({ title, isLoading, patents }) {
         className="font-epilogue font-bold text-[18px]
         text-black text-left"
       >
-        {title} ({patents.length})
+        {title} ({collaborations.length})
       </h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
@@ -28,23 +30,23 @@ export function DisplayPatent({ title, isLoading, patents }) {
           />
         )} */}
 
-        {!isLoading && patents.length === 0 && (
+        {!isLoading && collaborations.length === 0 && (
           <p
             className="font-epilogue font-semibold text-[14px
             leading-[30px] text-[#818183]"
           >
-            No Patents To Display
+            No Collaborations To Display
           </p>
         )}
 
         {!isLoading &&
-          patents.length > 0 &&
-          patents.map((patent) => (
+          collaborations.length > 0 &&
+          collaborations.map((collaboration) => (
             <Link href="">
               <PatentCard
                 key={uuidv4()}
-                {...patent}
-                handleClick={() => handleNavigate(patent)}
+                {...collaboration}
+                handleClick={() => handleNavigate(collaboration)}
               />
             </Link>
           ))}

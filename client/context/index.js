@@ -93,7 +93,7 @@ export const StateContextProvider = ({ children }) => {
   };
 
   const publishMarket = async () => {
-    const patents = await contract.call("getPatentsOnSale");
+    const patents = await contract.call("getPatentsOnsale");
 
     const parsedPatents = patents.map((patent, i) => ({
       id: patent.id,
@@ -137,6 +137,7 @@ export const StateContextProvider = ({ children }) => {
       profile: collaboration.profile,
       pId: i,
     }));
+    return parsedCollaborations;
   };
 
   return (
